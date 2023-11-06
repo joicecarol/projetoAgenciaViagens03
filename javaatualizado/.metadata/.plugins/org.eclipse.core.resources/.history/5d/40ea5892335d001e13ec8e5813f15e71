@@ -1,0 +1,94 @@
+package principal;
+import java.util.Date;
+public class Reserva {
+	public enum StatusReserva {
+        CONFIRMADA, PENDENTE
+    }
+	
+	private int idReserva;
+	private Date dataDaReserva;
+	private double valorTotal;
+	private Cliente cliente;
+	private Viagem viagem;
+	 private String status;
+	 private String metodoDePagamento;
+	
+	 private static int proximoIdReserva = 1;
+	
+	public Reserva(int idReserva, Date dataDaReserva, double valorTotal,
+			Cliente cliente, Viagem viagem) {
+		super();
+		this.idReserva = idReserva;
+		this.dataDaReserva = dataDaReserva;		
+		this.valorTotal = valorTotal;
+		this.cliente = cliente;
+		this.viagem = viagem;
+		this.status = "Pendente";
+	}
+	public Reserva(Date dataDaReserva, double preco, double valorTotal, Cliente cliente, Viagem viagem, String status) {
+		this.idReserva = proximoIdReserva++;
+		this.dataDaReserva = dataDaReserva;
+	    this.valorTotal = valorTotal;
+	    this.cliente = cliente;
+	    this.viagem = viagem;
+	    this.status = status;
+	}
+	public int getIdReserva() {
+		return idReserva;
+	}
+	public void setIdReserva(int idReserva) {
+		this.idReserva = idReserva;
+	}
+	public Date getDataDaReserva() {
+		return dataDaReserva;
+	}
+	public void setDataDaReserva(Date dataDaReserva) {
+		this.dataDaReserva = dataDaReserva;
+	}
+
+
+	public double getValorTotal() {
+		return valorTotal;
+	}
+	public void setValorTotal(double valorTotal) {
+		this.valorTotal = valorTotal;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public Viagem getViagem() {
+		return viagem;
+	}
+	public void setViagem(Viagem viagem) {
+		this.viagem = viagem;
+	}
+	public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+	
+    public String getMetodoDePagamento() {
+        return metodoDePagamento;
+    }
+
+    
+    public void setMetodoDePagamento(String metodoDePagamento) {
+        this.metodoDePagamento = metodoDePagamento;
+    }
+   
+    public void atualizarStatus() {
+        if (cliente != null && cliente.getDataDeNascimento() != null &&
+            viagem != null && viagem.getDataDeRetorno() != null) {
+            status = StatusReserva.CONFIRMADA.toString();
+        } else {
+            status = StatusReserva.PENDENTE.toString();
+        }
+    }
+
+}

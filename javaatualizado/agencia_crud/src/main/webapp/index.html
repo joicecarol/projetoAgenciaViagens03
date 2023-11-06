@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>agenciaViagens</title>
+ <link rel="stylesheet" type="text/css" href="index.css">
+ <link rel="stylesheet" type="text/css" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+
+ <img src="img/capa.jpeg" style="width: 100%; max-width: 100%; height: auto; max-height: 100%;" alt="Imagem ajustada à tela">
+  </header>
+
+  <main>
+	   <nav class="navbar navbar-expand-lg navbar-dark  custom-navbar text-light">
+            <div class="container">
+                <a class="navbar-brand" href="#"><img src="img/Logo Serviços De Turismo (3).png" height="48px"/> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ReadController">Cadastros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ReadController">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ReadController">Contato</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+   
+    <div class="conteiner">
+
+
+      <form class=" menudestino">
+        <label for="origem">Origem:</label>
+        <input type="text" id="origem" name="destino" required>
+        <label for="destino">Destino:</label>
+        <input type="text" id="destino" name="destino" required>
+        <br>
+        <label for="data_ida">Data de Ida:</label>
+        <input type="date" id="data_ida" name="data_ida" required>
+        <label for="data_volta">Data de Volta:</label>
+        <input type="date" id="data_volta" name="data_volta" required>
+        <br>
+        <label for="quantidade_pessoas">Pessoas:</label>
+        <input type="number" id="quantidade_pessoas" name="quantidade_pessoas" min="1" required>
+        <input type="submit" value="Buscar"><Br>
+      </form>
+</div>
+
+    <h2 style="padding: 20px; padding-top: 40px;"> Promoções para sua viagem </h2>
+
+    <div class="conteiner1">
+      <div class="celula2" id="caixa1"> <img src="img/novo.png.png" ></div>
+      <div class="celula2" id="caixa6"><img src="img/salvador.png.png" ></div>
+      <div class="celula2" id="caixa7"><img src="img/floripa.png.png" ></div>
+      <div class="celula2"> <img src="img/matogrosso.png.png" ></div>
+    </div>
+
+
+
+    <div class="conteiner2">
+      <div class="celula1" id="caixa4">
+        <h2> Conheça o Brasil</h2>
+      </div>
+    </div>
+
+
+    <div class="conteiner1">
+      <div class="celula2" id="caixa5"> <img
+          src="img/Pacote De Viagem Rio de Janeiro Post Feed Para Instagram Azul Laranja E Amarelo (5).png" ></div>
+      <div class="celula2" id="caixa6"><img src="img/NATAL.PNG.png" ></div>
+      <div class="celula2" id="caixa7"><img src="img/maragogi.png.jpeg" ></div>
+      <div class="celula2"> <img src="img/portodegalinhas.png.png" ></div>
+    </div>
+    <div class="conteiner2">
+      <div class="celula1">
+        <h2>Destinos mais procurados</h2>
+      </div>
+    </div>
+    <div class="conteiner1" style="padding-bottom: 60px;">
+      <div class="celula2" id="caixa8"><img src="img/cancun.png.jpeg"> </div>
+      <div class="celula2" id="caixa9"><img src="img/FERNADONORONHA.PNG.png"></div>
+      <div class="celula2" id="caixa10"> <img src="img/RJ.PNG.png"></div>
+      <div class="celula2" id="caixa11"><img src="img/paris.png.jpeg"> </div>
+    </div>
+<hr>
+</hr>
+    <div class="container1">
+      <div class="celula" id="footer">
+        <p style="padding: 10px;">
+        <h4> Formas de Pagamento </h4>
+        </p>
+        Pague no cartão de crédito em até 12X sem juros, boleto bancário ou pix!<br>
+        <img src="img/bandeira-de-cartoes-11.webp" width="25%" height="100%""> <br>
+  <font> &copy; Nosso Destino</font>
+</div>
+</div>
+ <footer class="custom-footer text-light text-center py-3 fixed-bottom">
+        &copy; 2023 Sua Empresa. Todos os direitos reservados.
+    </footer>
+ 
+
+    
+  </main>
+    
+</body>
+</html>

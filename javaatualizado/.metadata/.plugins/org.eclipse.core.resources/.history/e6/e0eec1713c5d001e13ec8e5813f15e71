@@ -1,0 +1,216 @@
+package principal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+	
+		Scanner entrada = new Scanner(System.in);
+		Cliente cliente = new Cliente();
+		Viagem viagem = new Viagem();
+		Hotel hotel = new Hotel();
+		Reserva reserva = new Reserva(new Date(), 0.0, 0.0, cliente, viagem, hotel, "Pendente");
+		
+		String statusPagamento = "";
+		
+		int opcao;
+        do {
+            System.out.println("MENU:");
+            System.out.println("1 - Cadastrar Cliente");
+            System.out.println("2 - Visualizar Cadastro do Cliente");
+            System.out.println("3 - Cadastrar Viagem");
+            System.out.println("4 - Consultar Cadastro da Viagem");
+            System.out.println("5 - Consultar Reserva");
+            System.out.println("6 - Consultar Pagamento");
+            System.out.println("7 - Sair");
+            System.out.println("Escolha uma opção: ");
+            opcao = entrada.nextInt();
+		
+            
+            
+            switch (opcao) {
+            case 1:
+            	
+        
+        		System.out.println("CADASTRO DO CLIENTE");
+                System.out.println("Digite o nome do cliente: ");
+        		String nome = entrada.next();
+        		cliente.setNome(nome);
+        		System.out.println("Digite o telefone do cliente: ");
+        		String telefone = entrada.next();
+        		cliente.setTelefone(telefone);
+        		System.out.println("Digite o e-mail do cliente: ");
+        		String email = entrada.next();
+        		cliente.setEmail(email);
+        		System.out.println("Digite a data de nascimento do cliente (formato dd/MM/yyyy): ");
+        		String dataNascimentoStr = entrada.next();
+        		SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date dataNascimento = formatoData.parse(dataNascimentoStr);
+                    cliente.setDataDeNascimento(dataNascimento);
+                } catch (ParseException e) {
+                    System.out.println("Erro ao ler a data de nascimento. Certifique-se de usar o formato dd/MM/yyyy.");
+                }
+               
+                
+        		System.out.println("Escolha o método de pagamento:");
+            	System.out.println("1 - Cartão");
+            	System.out.println("2 - Transferência Bancária");
+            	System.out.println("3 - Boleto");
+            	int metodoPagamentoOpcao = entrada.nextInt();
+            	String metododePagamento = "";
+            	if (metodoPagamentoOpcao == 1) {
+            	    metododePagamento = "cartao";
+            	} else if (metodoPagamentoOpcao == 2) {
+            	    metododePagamento = "tranferência bancária";
+            	} else if (metodoPagamentoOpcao == 3) {
+            	    metododePagamento = "boleto";
+            	} else {
+            	    System.out.println("Opção de pagamento inválida.");
+            	}
+            	
+
+            	if (metododePagamento.equals("cartao")) {
+            	    statusPagamento = "Pagamento Confirmado";
+            	} else if (metododePagamento.equals("boleto")) {
+            	    statusPagamento = "Pagamento Pendente";
+            	} else {
+            	    statusPagamento = " Pagamento Pendente"; 
+            	}
+        		
+            	
+        		
+            	System.out.println("Cadastro Realizado com Sucesso");
+                break;
+            case 2:
+            	
+            	System.out.println("DADOS DO CLIENTE");          
+            	 SimpleDateFormat formatoDataBrasil1 = new SimpleDateFormat("dd/MM/yyyy");
+            	    String dataNascimentoFormatada = formatoDataBrasil1.format(cliente.getDataDeNascimento());
+            	    System.out.println(cliente.toString());
+                break;
+            case 3: 
+            	
+            	System.out.println("CADASTRO DA VIAGEM ");
+                System.out.println("Digite o destino: ");
+                   		String destino = entrada.next();
+             		viagem.setDestino(destino);
+             	System.out.println("Digite a data de partida: ");
+           		String dataPartidaStr = entrada.next();
+           		SimpleDateFormat formatoData1 = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date dataPartida = formatoData1.parse(dataPartidaStr);
+                   viagem.setDataDePartida(dataPartida);
+                } catch (ParseException e) {
+                    System.out.println("Erro ao ler a data de nascimento. Certifique-se de usar o formato dd/MM/yyyy.");
+                }
+                System.out.println("Digite a data de retorno: ");
+                String dataRetornoStr = entrada.next();
+           		SimpleDateFormat formatoData2 = new SimpleDateFormat("dd/MM/yyyy");
+                try {
+                    Date dataRetorno = formatoData2.parse(dataRetornoStr);
+                    viagem.setDataDeRetorno(dataRetorno);
+                } catch (ParseException e) {
+                    System.out.println("Erro ao ler a data de nascimento. Certifique-se de usar o formato dd/MM/yyyy.");
+                }
+                System.out.println("Digite o número de pessoas: ");
+        		int numeroDePessoas = entrada.nextInt();
+        		viagem.setNumeroDePessoas(numeroDePessoas);
+        		System.out.println("Digite o preço: ");
+        		Double preco = entrada.nextDouble();
+        		viagem.setPreco(preco);
+        		System.out.println("Escolha a Companhia aérea:");
+            	System.out.println("1 - Gol");
+            	System.out.println("2 - Latam");
+            	System.out.println("3 - Azul");
+            	
+            	int escolhaCompanhiaAerea = entrada.nextInt();
+            	
+            	switch (escolhaCompanhiaAerea) {
+                case 1:
+                    viagem.setLinhaAerea("Gol");
+                    break;
+                case 2:
+                    viagem.setLinhaAerea("Latam");
+                    break;
+                case 3:
+                    viagem.setLinhaAerea("Azul");
+                    break;
+                default:
+                    System.out.println("Opção de companhia aérea inválida.");
+                    break;
+            }
+            	
+            break;
+        case 4:
+        	System.out.println("DADOS DA VIAGEM");
+        	System.out.println(viagem.toString());
+        	
+        
+            break;
+        case 5:
+        	System.out.println("=====Cadastro do Hotel======");
+        	 System.out.println("Digite o Local: ");
+        	 String local = entrada.next();
+        	 hotel.setLocal(local);
+        	  System.out.println("Digite o nome do hotel: ");
+        	  String nomeDoHotel = entrada.next();
+        	  hotel.setNomeDoHotel(nomeDoHotel);
+        	  System.out.println("Digite a quantidade de diárias: ");
+        	  int quantidadeDiaria = entrada.nextInt();
+        	  hotel.setQuantidadeDiaria(quantidadeDiaria);
+        	  System.out.println("Digite o Preço do Hotel: ");
+        	  int precoHotel = entrada.nextInt();
+        	  hotel.setPrecoHotel(precoHotel);
+        System.out.println("Pressione 0 para voltar ao menu principal...");
+            {
+    
+            break; 
+        }
+        case 6:
+        	System.out.println("DADOS DO HOTEL");
+        	System.out.println(hotel.toString());
+        	
+        	break; 	
+        case 7:
+        	System.out.println("=====CONSULTAR RESERVA======");
+        	double valorTotalReserva = viagem.getPreco() + hotel.getPrecoHotel();
+        	SimpleDateFormat formatoDataBrasil = new SimpleDateFormat("dd/MM/yyyy");
+                
+        	System.out.println("ID da Reserva: " + reserva.getIdReserva());
+        	System.out.println("Data da Reserva: " + formatoDataBrasil.format(reserva.getDataDaReserva()));
+            System.out.println("Status da Reserva: " + reserva.getStatus());
+            System.out.println("Nome do cliente: " + cliente.getNome());
+            System.out.println("Dta de Partida: " + formatoDataBrasil.format(viagem.getDataDePartida()));
+            System.out.println("Data de Retorno: " + formatoDataBrasil.format(viagem.getDataDeRetorno()));
+            System.out.println("Linha aérea: " + viagem.getLinhaAerea());
+            System.out.println("Nome do Hotel: " + hotel.getNomeDoHotel());
+            System.out.println("Local: " + hotel.getLocal());
+            System.out.println("Valor Total da Reserva: " + valorTotalReserva);
+            System.out.println("Status do Pagamento: " + statusPagamento);
+
+            System.out.println("Pressione 0 para voltar ao menu principal...");
+            break;
+           
+        case 8:
+            System.out.println("Saindo do programa...");
+            break; 
+    default:
+        System.out.println("Opção inválida. Tente novamente.");
+        break;
+}
+} while (opcao != 9);
+
+entrada.close();
+}
+
+	
+	}
+
+	
+	
+

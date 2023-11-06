@@ -1,0 +1,66 @@
+package principal;
+import java.util.Date;
+public class Hotel {
+	private int idPagamento;
+	private Date dataDePagamento;
+	private String metodoDePagamento;
+	private String status;
+	private Reserva reserva;
+	private static int proximoIdPagamento = 1;
+	public Hotel(int idPagamento, Date dataDePagamento, String metodoDePagamento, String status, Reserva reserva) {
+		super();
+		this.idPagamento = idPagamento;
+		this.dataDePagamento = dataDePagamento;
+		this.metodoDePagamento = metodoDePagamento;
+		this.status = status;
+		this.reserva = reserva;
+	}
+
+	
+	 public Hotel() {
+	        this.idPagamento = proximoIdPagamento++;
+	 }
+	
+	
+	public int getIdPagamento() {
+		return idPagamento;
+	}
+
+	public void setIdPagamento(int idPagamento) {
+		this.idPagamento = idPagamento;
+	}
+
+	public Date getDataDePagamento() {
+		return dataDePagamento;
+	}
+
+	public void setDataDePagamento(Date dataDePagamento) {
+		this.dataDePagamento = dataDePagamento;
+	}
+
+	public String getMetodoDePagamento() {
+		return metodoDePagamento;
+	}
+
+	public void setMetodoDePagamento(String metodoDePagamento) {
+		this.metodoDePagamento = metodoDePagamento;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Reserva getReserva() {
+		return reserva;
+	}
+
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
+	
+
+    }

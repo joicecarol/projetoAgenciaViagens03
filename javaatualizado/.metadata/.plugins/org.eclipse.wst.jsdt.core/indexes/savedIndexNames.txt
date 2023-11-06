@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\joice\OneDrive\Imagens\javaatualizado\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+3340515042.index
+3345474544.index
+2004802254.index
+1407567021.index
+2079616966.index
+2867009660.index
